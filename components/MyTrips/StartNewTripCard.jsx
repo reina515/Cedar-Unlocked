@@ -6,13 +6,11 @@ export default function StartNewTripCard() {
   const router = useRouter();
    const user = auth.currentUser;
 
-  // Animated values for multiple shapes
   const float1 = new Animated.Value(0);
   const float2 = new Animated.Value(0);
   const float3 = new Animated.Value(0);
   const float4 = new Animated.Value(0);
 
-  // Animation function
   const animate = (anim) => {
     Animated.loop(
       Animated.sequence([
@@ -27,7 +25,7 @@ export default function StartNewTripCard() {
   animate(float3);
   animate(float4);
 
-  // Button animation
+  
   const scaleAnim = new Animated.Value(1);
   const handlePressIn = () => Animated.spring(scaleAnim, { toValue: 0.95, useNativeDriver: true }).start();
   const handlePressOut = () => Animated.spring(scaleAnim, { toValue: 1, useNativeDriver: true }).start();
@@ -44,14 +42,13 @@ export default function StartNewTripCard() {
 
   return (
     <View style={styles.wrapper}>
-      {/* Floating decorative circles */}
+ 
       <Animated.View style={[styles.circle, styles.circle1, { transform: [{ translateY: float1 }] }]} />
       <Animated.View style={[styles.circle, styles.circle2, { transform: [{ translateY: float2 }] }]} />
       <Animated.View style={[styles.circle, styles.circle3, { transform: [{ translateY: float3 }] }]} />
       <Animated.View style={[styles.circle, styles.circle4, { transform: [{ translateY: float4 }] }]} />
 
 
-      {/* Main content container */}
       <View style={styles.contentContainer}>
         <Text style={styles.title}>Adventure Awaits!</Text>
         <Text style={styles.subtitle}>
