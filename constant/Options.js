@@ -1,34 +1,4 @@
-export const SelectTravelersList = [
-  {
-    id: 1,
-    title: "Just Me",
-    desc: "A sole traveler in exploration",
-    people: "1 Person",
-    image: require("../assets/images/solo.jpg"),
-  },
-  {
-    id: 2,
-    title: "A Couple",
-    desc: "Two travelers in tandem",
-    people: "2 People",
-    image: require("../assets/images/couple.jpg"),
-  },
-  {
-    id: 3,
-    title: "A Family",
-    desc: "A group of fun adventures",
-    people: "3 to 7 People",
-    icon: "🌆",
-    image: require("../assets/images/family.jpg"),
-  },
-  {
-    id: 4,
-    title: "Friends",
-    desc: "A bunch of thrill-seekers",
-    people: "5 to 10 People",
-    image: require("../assets/images/friends.jpg"),
-  },
-];
+
 export const SelectBudgetOptions = [
   {
     id: 1,
