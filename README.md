@@ -63,21 +63,22 @@ Before you begin, ensure you have installed:
 3. Start the app
    ```bash
    npx expo start
+   
 4.Firebase (authentication & Firestore)
    ```bash
-    npm install firebase
+   npm install firebase
 
 5.Calendar Picker (trip date selection)
    ```bash
-    npm install react-native-calendar-picker
+   npm install react-native-calendar-picker
 
 6.UI Components / Styling
    ```bash
-    npm install @expo/vector-icons
+   npm install @expo/vector-icons
 
 7.Additional Tools for APIs
    ```bash
-    npm install axios
+   npm install axios
 
 
 8. Configure environment variables
