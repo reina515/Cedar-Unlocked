@@ -1,8 +1,7 @@
-// app/services/firestoreTransport.js
-import { collection, getDocs, query, where } from "firebase/firestore";
-import { db } from "../configs/FirebaseConfig"; // adjust if needed
 
-// Fetch all routes (buses & vans)
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../configs/FirebaseConfig"; 
+
 export const fetchRoutes = async () => {
   try {
     const snapshot = await getDocs(collection(db, "routes"));
@@ -16,7 +15,6 @@ export const fetchRoutes = async () => {
   }
 };
 
-// Fetch stops for a specific route
 export const fetchStopsForRoute = async (routeId) => {
   try {
     const q = query(
