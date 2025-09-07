@@ -8,7 +8,6 @@ const CARD_WIDTH = width * 0.8;
 const CARD_HEIGHT = 570;
 const SPACING = 20;
 
-// Updated traveler alter ego options
 const TravelerAlterEgoList = [
   {
     id: 1,
@@ -64,7 +63,6 @@ const SelectTravelerAlterEgo = () => {
     });
   }, []);
 
-  // Triple the data for infinite scroll effect
   const data = [...TravelerAlterEgoList, ...TravelerAlterEgoList, ...TravelerAlterEgoList];
 
   useEffect(() => {
@@ -117,7 +115,6 @@ const SelectTravelerAlterEgo = () => {
             imageStyle={styles.imageStyle}
             resizeMode="cover"
           >
-            {/* Gradient overlay for better text readability */}
             <View style={styles.gradientOverlay} />
             
             <View style={styles.textContainer}>
@@ -155,7 +152,6 @@ const SelectTravelerAlterEgo = () => {
   });
 
   const handleContinue = () => {
-    // Use router.push instead of navigation.navigate for expo-router
     router.push("/create-trip/select-dates");
   };
 
