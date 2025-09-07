@@ -4,13 +4,13 @@ const { getFirestore, doc, setDoc, addDoc, collection, updateDoc } = require('fi
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCyoF_Gf09CUM4XDeqa-_eVGZM0Rw_XAoU",
-  authDomain: "ai-travel-planner-7b8cb.firebaseapp.com",
-  projectId: "ai-travel-planner-7b8cb",
-  storageBucket: "ai-travel-planner-7b8cb.firebasestorage.app",
-  messagingSenderId: "871698685561",
-  appId: "1:871698685561:web:2dd3395d27ddbd3f983ea8",
-  measurementId: "G-GVNEHHGW0B"
+  apiKey: 
+  authDomain: 
+  projectId: 
+  storageBucket: 
+  messagingSenderId: 
+  appId: 
+  measurementId:
 };
 
 
@@ -169,7 +169,7 @@ async function updateDatabase() {
     console.log("Starting database update...");
     
  
-    console.log("\n📍 Updating routes with new schedules...");
+    console.log("\n Updating routes with new schedules...");
     for (const route of updatedRoutes) {
       await updateDoc(doc(db, "routes", route.id), {
         schedule: route.schedule,
@@ -179,19 +179,19 @@ async function updateDatabase() {
     }
     
 
-    console.log("\n🚏 Adding stops with coordinates...");
+    console.log("\n Adding stops with coordinates...");
     for (const stop of additionalStops) {
       await addDoc(collection(db, "stops"), stop);
       console.log(`✓ Added stop ${stop.name} for route ${stop.route_id}`);
     }
     
-    console.log("\n🎉 Database update complete!");
-    console.log("📊 Summary:");
+    console.log("\n Database update complete!");
+    console.log(" Summary:");
     console.log(`   - Routes updated: ${updatedRoutes.length}`);
     console.log(`   - New stops added: ${additionalStops.length}`);
     
   } catch (error) {
-    console.error("❌ Error updating database:", error);
+    console.error(" Error updating database:", error);
   }
 }
 updateDatabase();
