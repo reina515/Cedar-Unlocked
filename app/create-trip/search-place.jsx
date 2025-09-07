@@ -32,8 +32,6 @@ export default function SearchPlace() {
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [placeImage, setPlaceImage] = useState(null);
 
-  const LOCATIONIQ_KEY = "pk.29cb49746512a7bc4eaaa6b7d25ff31b";
-  const UNSPLASH_KEY = "GdbBs3XZ-GtIZKpPtvTTEiCHo1bbiN93SCtb066_gJI";
 
   const debounceRef = useRef(null);
   const { setTripData } = useContext(CreateTripContext);
