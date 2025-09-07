@@ -21,7 +21,7 @@ It integrates **Firebase**, **LocationIQ**, **Unsplash**, and **Gemini API** to 
 
 ### Programming Languages
 - **JavaScript** – Application logic and UI  
-
+- **TypeScript** – Application logic and UI  
 ###  Frameworks & Libraries
 - **React Native + Expo (Web)** – Build reusable UI & run on browsers/emulators  
 - **React Navigation** – Multi-screen navigation  
@@ -41,7 +41,7 @@ It integrates **Firebase**, **LocationIQ**, **Unsplash**, and **Gemini API** to 
 
 ###  Prerequisites
 Before you begin, ensure you have installed:  
-- [Node.js](https://nodejs.org/) (>= 18.x recommended)  
+- [Node.js](https://nodejs.org/) (v20.12.2)  
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)  
 - [Expo CLI](https://docs.expo.dev/get-started/installation/) (`npm install -g expo-cli`)  
 - A Firebase project (to connect authentication & Firestore)  
