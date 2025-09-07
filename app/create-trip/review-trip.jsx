@@ -69,7 +69,6 @@ export default function ReviewTrip() {
         paddingTop: 75,
       }}
     >
-      {/* Header */}
       <Text
         style={{
           fontFamily: "outfit-bold",
@@ -92,7 +91,6 @@ export default function ReviewTrip() {
         Before generating your trip, please confirm your details below.
       </Text>
 
-      {/* Info Sections */}
       <InfoCard
         icon={<Ionicons name="location-sharp" size={28} color="#FF6B35" />}
         title="Destination"
@@ -120,7 +118,6 @@ export default function ReviewTrip() {
         value={tripData?.budget || "Not specified"}
       />
 
-      {/* CTA Button */}
       <TouchableOpacity
         onPress={() => router.replace("/create-trip/generate-trip")}
         style={{
