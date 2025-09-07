@@ -1,11 +1,11 @@
-# Cedar Unlocked 🌲
+# Cedar Unlocked 
 
 Cedar Unlocked is a **React Native + Expo (Web)** application that helps users plan trips, explore transport routes, and receive AI-powered travel recommendations.  
 It integrates **Firebase**, **LocationIQ**, **Unsplash**, and **Gemini API** to deliver a seamless and smart travel experience.
 
 ---
 
-## 📌 Features
+##  Features
 - **User Authentication** with Firebase (secure login & registration)  
 - **Public Transport Routes & Stops** stored in Firestore  
 - **Trip Planner** with calendar picker (start/end dates)  
@@ -16,7 +16,7 @@ It integrates **Firebase**, **LocationIQ**, **Unsplash**, and **Gemini API** to 
 
 ---
 
-## 🛠️ Technologies
+## Technologies
 
 ### Programming Languages
 - **JavaScript** – Application logic and UI  
@@ -37,7 +37,7 @@ It integrates **Firebase**, **LocationIQ**, **Unsplash**, and **Gemini API** to 
 
 ---
 
-## 🚀 Getting Started  
+##   Getting Started  
 
 ### Prerequisites
 Before you begin, ensure you have installed:  
@@ -110,7 +110,7 @@ Before you begin, ensure you have installed:
 
 ---
 
-## 🔑 Firebase Service Account Key Setup
+##  Firebase Service Account Key Setup
 
 Some features of the app (like server-side Firestore access or admin tasks) require a **Firebase Service Account Key**.  
 
@@ -141,11 +141,11 @@ Some features of the app (like server-side Firestore access or admin tasks) requ
    }
    ```
 
-   **⚠️ Important:** Never commit this file to version control. Add it to your `.gitignore` file.
+   **Important:** Never commit this file to version control. Add it to your `.gitignore` file.
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the project
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -155,7 +155,7 @@ Some features of the app (like server-side Firestore access or admin tasks) requ
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
