@@ -30,14 +30,7 @@ export default function UserTripCard({trip}){
                }}
                resizeMode='cover'
                /> 
-         {/* <Image source={require('./../../assets/images/lebanon.jpg')}
-          style={{
-            width:100,
-            height:100,
-            borderRadius: 15,
-
-          }}
-          /> */}
+         
           <View >
             <Text style = {{
                 fontFamily: 'outfit-medium',
