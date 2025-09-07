@@ -36,7 +36,6 @@ export default function Profile() {
 
     setUser(auth.currentUser);
 
-    // Real-time listener for user trips
     const q = query(
       collection(db, "UserTrips"),
       where("userEmail", "==", auth.currentUser.email)
@@ -232,12 +231,12 @@ export default function Profile() {
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      {/* Header */}
+
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Profile</Text>
       </View>
 
-      {/* User Info */}
+
       <View style={styles.section}>
         <View style={styles.userCard}>
           <View style={styles.avatarContainer}>
@@ -261,7 +260,6 @@ export default function Profile() {
         </View>
       </View>
 
-      {/* Stats */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Your Travel Stats</Text>
         <View style={styles.statsContainer}>
@@ -293,7 +291,7 @@ export default function Profile() {
         </View>
       </View>
 
-      {/* Recent Trips */}
+
       {userTrips.length > 0 && (
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
@@ -308,7 +306,7 @@ export default function Profile() {
         </View>
       )}
 
-      {/* Favorite Trips */}
+
       {favoriteTrips.length > 0 && (
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
@@ -323,7 +321,7 @@ export default function Profile() {
         </View>
       )}
 
-      {/* Empty favorites */}
+
       {favoriteTrips.length === 0 && (
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Favorite Trips</Text>
@@ -345,7 +343,6 @@ export default function Profile() {
 
  
 
-      {/* Account Management - All clickable */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Account Settings</Text>
         
@@ -420,7 +417,7 @@ export default function Profile() {
         </TouchableOpacity>
       </View>
 
-      {/* Account Actions */}
+
       <View style={styles.section}>
         <TouchableOpacity 
           style={[styles.optionCard, styles.logoutCard]}
@@ -451,7 +448,6 @@ export default function Profile() {
         </TouchableOpacity>
       </View>
 
-      {/* Change Password Modal */}
       <Modal
         visible={changePasswordModal}
         transparent={true}
@@ -580,7 +576,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
 
-  // User Info Styles
+
   userCard: {
     backgroundColor: '#fff',
     borderRadius: 16,
@@ -630,7 +626,7 @@ const styles = StyleSheet.create({
     color: '#666',
   },
 
-  // Stats Styles
+
   statsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -661,7 +657,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 
-  // Trip Card Styles (Non-clickable)
+
   tripCard: {
     backgroundColor: '#fff',
     borderRadius: 12,
@@ -704,7 +700,7 @@ const styles = StyleSheet.create({
     color: '#666',
   },
 
-  // Empty favorites state
+
   emptyFavoritesCard: {
     backgroundColor: '#fff',
     borderRadius: 12,
@@ -742,7 +738,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
 
-  // Option Card Styles (Clickable)
   optionCard: {
     backgroundColor: '#fff',
     borderRadius: 12,
@@ -787,7 +782,7 @@ const styles = StyleSheet.create({
     color: '#FF3B30',
   },
 
-  // Modal Styles
+
   modalOverlay: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,0.5)',
