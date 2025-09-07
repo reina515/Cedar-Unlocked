@@ -30,6 +30,12 @@ const updatedRoutes = [
   { id: "ML2", name: "LINE ML2", price: 170000, schedule: { start: "06:00", end: "19:00", frequency: 25 } },
   { id: "ML3", name: "LINE ML3", price: 70000, schedule: { start: "06:00", end: "19:00", frequency: 25 } },
   { id: "ML4", name: "LINE ML4", price: 200000, schedule: { start: "06:00", end: "19:00", frequency: 25 } },
+   { id: "Bus4", name: "Bus 4", price: 100000, schedule: { start: "06:00", end: "19:00", frequency: 25 } },
+  { id: "Bus5", name: "Bus 5", price: 100000, schedule: { start: "06:00", end: "19:00", frequency: 25 } },
+  { id: "Bus6", name: "Bus 6", price: 100000, schedule: { start: "06:00", end: "19:00", frequency: 25 } },
+  { id: "Bus12", name: "Bus 12", price: 100000, schedule: { start: "06:00", end: "19:00", frequency: 25 } },
+  { id: "Bus15", name: "Bus 15", price: 100000, schedule: { start: "06:00", end: "19:00", frequency: 25 } },
+  
 ];
 
 const additionalStops = [
@@ -101,6 +107,61 @@ const additionalStops = [
   { route_id: "ML4", name: "Jounieh", lat: 33.98, lng: 35.64, order: 4 },
   { route_id: "ML4", name: "Byblos", lat: 34.12, lng: 35.65, order: 5 },
   { route_id: "ML4", name: "Tripoli", lat: 34.4367, lng: 35.8497, order: 7 },
+  // === Bus 4 ===
+  { route_id: "Bus4",  name: "Lebanese University",     order: 1 },
+  { route_id: "Bus4",  name: "Laylakeh",                 order: 2 },
+  { route_id: "Bus4",  name: "Kafaat",                   order: 3 },
+  { route_id: "Bus4",  name: "Mar Mikhael Church",       order: 4 },
+  { route_id: "Bus4",  name: "Beirut Mall",              order: 5 },
+  { route_id: "Bus4",  name: "Tayouneh",                 order: 6 },
+  { route_id: "Bus4",  name: "Barbir",                   order: 7 },
+  { route_id: "Bus4",  name: "Martyrs' Square",          order: 8 },
+  { route_id: "Bus4",  name: "Burg El Murr",             order: 9 },
+  { route_id: "Bus4",  name: "Fransabank",               order: 10 },
+  { route_id: "Bus4",  name: "Wardiye",                  order: 11 },
+  { route_id: "Bus4",  name: "AUBMC",                    order: 12 },
+
+  // === Bus 12 ===
+  { route_id: "Bus12", name: "Burj Barajneh",            order: 1 },
+  { route_id: "Bus12", name: "Haret Hreik",              order: 2 },
+  { route_id: "Bus12", name: "Mucharafieh",              order: 3 },
+  { route_id: "Bus12", name: "Chatila Roundabout",       order: 4 },
+  { route_id: "Bus12", name: "Arab University",          order: 5 },
+  { route_id: "Bus12", name: "Cola",                     order: 6 },
+  { route_id: "Bus12", name: "Mar Elias",                order: 7 },
+  { route_id: "Bus12", name: "Hamra",                    order: 8 },
+
+  // === Bus 15 ===
+  { route_id: "Bus15", name: "Dawra",                    order: 1 },
+  { route_id: "Bus15", name: "BIEL",                     order: 2 },
+  { route_id: "Bus15", name: "Zaitouna Bay",             order: 3 },
+  { route_id: "Bus15", name: "Ein El Mraiseh",           order: 4 },
+  { route_id: "Bus15", name: "AUB Seaside",              order: 5 },
+  { route_id: "Bus15", name: "Manara",                   order: 6 },
+  { route_id: "Bus15", name: "Rawsheh",                  order: 7 },
+  { route_id: "Bus15", name: "Ramlet El Bayda",          order: 8 },
+  { route_id: "Bus15", name: "Corniche Mazraa",          order: 9 },
+  { route_id: "Bus15", name: "Nahr El Mott",             order: 10 },
+
+  // === Bus 6 ===
+  { route_id: "Bus6",  name: "Byblos",                   order: 1 },
+  { route_id: "Bus6",  name: "Jounieh",                  order: 2 },
+  { route_id: "Bus6",  name: "Kaslik",                   order: 3 },
+  { route_id: "Bus6",  name: "Nahr El Kalb",             order: 4 },
+  { route_id: "Bus6",  name: "Dbayeh",                   order: 5 },
+  { route_id: "Bus6",  name: "Antelias (Highway bridge)",order: 6 },
+  { route_id: "Bus6",  name: "Cola",                     order: 7 },
+
+  // === Bus 5 ===
+  { route_id: "Bus5",  name: "Hamra",                    order: 1 },
+  { route_id: "Bus5",  name: "Rizk Hospital",            order: 2 },
+  { route_id: "Bus5",  name: "Sassine",                  order: 3 },
+  { route_id: "Bus5",  name: "Burj Hammoud",             order: 4 },
+  { route_id: "Bus5",  name: "Fanar",                    order: 5 },
+  { route_id: "Bus5",  name: "Lebanese University",      order: 6 },
+  { route_id: "Bus5",  name: "Ain Saadeh",               order: 7 }
+
+
 ];
 
 async function updateDatabase() {
