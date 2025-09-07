@@ -65,8 +65,8 @@ Before you begin, ensure you have installed:
    npx expo start
    
 4.Firebase (authentication & Firestore)
-   ```bash
-   npm install firebase
+npm install firebase
+
 
 5.Calendar Picker (trip date selection)
    ```bash
