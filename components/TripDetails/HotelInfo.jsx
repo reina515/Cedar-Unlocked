@@ -98,7 +98,7 @@ export default function HotelInfo({ hotelData }) {
             </Text>
           )}
           
-          {/* Amenities */}
+
           {hotelData.amenities && (
             <View style={styles.amenitiesContainer}>
               <Text style={styles.amenitiesTitle}>Amenities:</Text>
@@ -117,7 +117,7 @@ export default function HotelInfo({ hotelData }) {
             </View>
           )}
           
-          {/* Booking Button */}
+    
           {hotelData.bookingUrl && (
             <TouchableOpacity style={styles.bookingButton} onPress={handleBooking}>
               <Ionicons name="open-outline" size={16} color="white" />
