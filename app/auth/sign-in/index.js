@@ -42,19 +42,18 @@ export default function SignIn() {
 
     return (
         <View style={styles.container}>
-            {/* Background Elements */}
+
             <View style={styles.backgroundCircle1} />
             <View style={styles.backgroundCircle2} />
             <View style={styles.backgroundGradient} />
 
-            {/* Header */}
             <View style={styles.header}>
                 <TouchableOpacity onPress={() => router.replace('auth/sign-up')} style={styles.backButton}>
                     <Ionicons name="chevron-back" size={24} color="#006A4E" />
                 </TouchableOpacity>
             </View>
 
-            {/* Content */}
+
             <View style={styles.content}>
                 <View style={styles.titleSection}>
                     <View style={styles.titleContainer}>
