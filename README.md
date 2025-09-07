@@ -1,5 +1,5 @@
 
-# CedarsUnlocked 🌲
+# Cedar Unlocked 🌲
 
 Cedar Unlocked is a **React Native + Expo (Web)** application that helps users plan trips, explore transport routes, and receive AI-powered travel recommendations.  
 It integrates **Firebase**, **LocationIQ**, **Unsplash**, and **Gemini API** to deliver a seamless and smart travel experience.
