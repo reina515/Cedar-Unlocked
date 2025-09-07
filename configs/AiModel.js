@@ -3,7 +3,7 @@ const GOOGLE_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/
 
 export const chatSession = {
   sendMessage: async (prompt) => {
-    console.log("=== AI MODEL: SENDING REQUEST ===");
+    console.log("AI MODEL: SENDING REQUEST ");
     console.log("Prompt length:", prompt.length);
     console.log("API Key exists:", !!process.env.EXPO_PUBLIC_GOOGLE_GEMINI_API_KEY);
     
@@ -42,7 +42,7 @@ export const chatSession = {
       }
 
       const data = await response.json();
-      console.log("=== AI MODEL: FULL RESPONSE ===");
+      console.log("AI MODEL: FULL RESPONSE");
       console.log(JSON.stringify(data, null, 2));
 
       const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
@@ -54,7 +54,7 @@ export const chatSession = {
         throw new Error("No text content in AI response");
       }
 
-      console.log("=== AI MODEL: EXTRACTED TEXT ===");
+      console.log("AI MODEL: EXTRACTED TEXT ");
       console.log("Text length:", text.length);
       console.log("Raw text:", text);
       
@@ -64,7 +64,7 @@ export const chatSession = {
         }
       };
     } catch (err) {
-      console.error("=== AI MODEL: ERROR ===");
+      console.error(" AI MODEL: ERROR");
       console.error("Error name:", err.name);
       console.error("Error message:", err.message);
       console.error("Error stack:", err.stack);
