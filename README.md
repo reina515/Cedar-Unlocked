@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 # CedarsUnlocked
 
 You can start using the app in two ways:
