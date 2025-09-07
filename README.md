@@ -57,16 +57,17 @@ Before you begin, ensure you have installed:
    cd Cedar-Unlocked
 
 2. Install dependencies
-bash
+   ```bash
    npm install
 3. Start the app
-bash
+   ```bash
    npx expo start
 4. Configure environment variables
 
 ## Create a .env file in the root directory and add your API keys:
 
 # Firebase Configuration
+```env
 FIREBASE_API_KEY=your_firebase_key
 FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
 FIREBASE_PROJECT_ID=your_project_id
@@ -75,6 +76,7 @@ FIREBASE_MESSAGING_SENDER_ID=your_sender_id
 FIREBASE_APP_ID=your_app_id
 
 # API Keys
+```env
 LOCATIONIQ_API_KEY=your_locationiq_key
 UNSPLASH_API_KEY=your_unsplash_key
 GEMINI_API_KEY=your_gemini_key
