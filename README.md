@@ -1,58 +1,44 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
-# Welcome to your Expo app 👋
+# CedarsUnlocked
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+You can start using the app in two ways:
 
-## Get started
+### 1. Run in Android Studio (recommended)
+The app is fully compatible with Android Studio. Open the project and run it on an emulator or a physical device.
 
-1. Install dependencies
+- [Download Android Studio](https://developer.android.com/studio)
 
-   ```bash
-   npm install
-   ```
+### 2. Run with Expo
+If you want to quickly preview the app without building a full Android project, you can use Expo:
 
-2. Start the app
+\```bash
+npm install
+npm start
+\```
 
-   ```bash
-   npx expo start
-   ```
+Then, scan the QR code with the Expo Go app on your Android device to run the app.
 
-In the output, you'll find options to open the app in a
+- [Download Expo Go](https://expo.dev/client)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+You can start by entering trip details (region, dates, traveler type, budget) or exploring the public transport guide for routes, schedules, and fares.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Tools & Services Required
 
-## Get a fresh project
+To get the app fully functional, you need the following tools and services:
 
-When you're ready, run:
+- **React Native** – [https://reactnative.dev/](https://reactnative.dev/) – Build cross-platform mobile apps  
+- **Expo** – [https://expo.dev/](https://expo.dev/) – Development framework for React Native apps  
+- **Firebase** – [https://firebase.google.com/](https://firebase.google.com/) – Authentication, database, real-time updates  
+- **Google Maps Platform** – [https://mapsplatform.google.com/](https://mapsplatform.google.com/) – Maps, routes, and places  
+- **LocationIQ** – [https://locationiq.com/](https://locationiq.com/) – Geolocation and routing  
+- **Unsplash API** – [https://unsplash.com/developers](https://unsplash.com/developers) – Travel images  
+- **OpenAI API** – [https://openai.com/api/](https://openai.com/api/) – AI-powered trip recommendations  
 
-```bash
-npm run reset-project
-```
+## Join the Community
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Connect with other developers and learn more about the tools used:
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
-=======
-# CedarUnlocked
->>>>>>> 30f771f23238d01a98cfde791577b972aadee130
-=======
-# CedarUnlocked
->>>>>>> 30f771f23238d01a98cfde791577b972aadee130
+- [CedarsUnlocked on GitHub](https://github.com/) – View the project and contribute  
+- [Expo on GitHub](https://github.com/expo) – Explore the Expo platform  
+- [Discord community](https://discord.com/invite/expo) – Chat with Expo users and ask questions
