@@ -76,7 +76,6 @@ FIREBASE_MESSAGING_SENDER_ID=your_sender_id
 FIREBASE_APP_ID=your_app_id
 
 # API Keys
-```env
 LOCATIONIQ_API_KEY=your_locationiq_key
 UNSPLASH_API_KEY=your_unsplash_key
 GEMINI_API_KEY=your_gemini_key
