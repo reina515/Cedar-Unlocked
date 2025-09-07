@@ -19,8 +19,6 @@ export default function MyTrip() {
       GetMyTrips();
     }
   }, [user]);
-
-  // Fix: Use useFocusEffect for screen refresh
   useFocusEffect(
     useCallback(() => {
       if (user) {
@@ -42,7 +40,6 @@ export default function MyTrip() {
 
       console.log("Fetching trips for:", user.email);
       
-      // Simple query - no composite index needed
       const q = query(
         collection(db, 'UserTrips'), 
         where('userEmail', '==', user.email)
@@ -69,11 +66,10 @@ export default function MyTrip() {
         });
       });
       
-      // Sort by createdAt in JavaScript (newest first)
       trips.sort((a, b) => {
         const aTime = a.createdAt || 0;
         const bTime = b.createdAt || 0;
-        return bTime - aTime; // Descending order
+        return bTime - aTime; 
       });
       
       setUserTrips(trips);
@@ -87,7 +83,6 @@ export default function MyTrip() {
     }
   };
 
-  // Callback function to refresh trips when favorite status changes
   const handleTripUpdate = () => {
     GetMyTrips();
   };
