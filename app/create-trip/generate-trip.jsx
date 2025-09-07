@@ -25,12 +25,12 @@ export default function GenerateTrip() {
       return obj.map(cleanObject).filter(item => item !== null && item !== undefined);
     }
     
-    // Handle Date objects and moment objects
+  
     if (obj instanceof Date || (obj && typeof obj === 'object' && obj._isAMomentObject)) {
       return obj.toISOString ? obj.toISOString() : new Date(obj).toISOString();
     }
     
-    // Handle moment.js objects or other date-like objects
+ 
     if (obj && typeof obj === 'object' && (obj.format || obj.toDate)) {
       try {
         if (obj.toDate) {
@@ -55,7 +55,7 @@ export default function GenerateTrip() {
       return cleaned;
     }
     
-    // Filter out functions
+
     if (typeof obj === 'function') {
       return undefined;
     }
@@ -73,12 +73,11 @@ export default function GenerateTrip() {
       return;
     }
 
-    // Updated prompt replacement to handle the new traveler structure
     const FINAL_PROMT = AI_PROMT
       .replace("{location}", tripData.locationInfo.name)
       .replace("{totalDays}", tripData.totalNoOfDays)
       .replace("{totalNight}", tripData.totalNoOfDays - 1)
-      .replace(/\{traveler\}/g, tripData.traveler.title) // Use global replace for multiple occurrences
+      .replace(/\{traveler\}/g, tripData.traveler.title) 
       .replace("{budget}", tripData.budget);
 
     try {
@@ -88,7 +87,6 @@ export default function GenerateTrip() {
       const result = await chatSession.sendMessage(FINAL_PROMT);
       const aiText = await result.response.text();
 
-      // Clean and parse JSON
       let jsonString = aiText.trim();
       
       if (jsonString.includes('```json')) {
@@ -108,10 +106,8 @@ export default function GenerateTrip() {
       setAiGenerated(true);
       const docId = `${user.uid}_${Date.now()}`;
 
-      // Save with timestamp as number for easier sorting
       const timestamp = Date.now();
-      
-      // Clean startDate specifically
+
       let cleanStartDate = null;
       if (tripData.startDate) {
         try {
@@ -130,7 +126,7 @@ export default function GenerateTrip() {
         }
       }
       
-      // Debug log the tripData structure
+  
       console.log("Original tripData structure:", {
         locationInfo: tripData.locationInfo,
         traveler: tripData.traveler,
@@ -142,18 +138,15 @@ export default function GenerateTrip() {
       const saveData = {
         userEmail: user.email,
         userId: user.uid,
-        // Store destination name directly for easier access
         destination: tripData.locationInfo?.name || 'Unknown Location',
         locationName: tripData.locationInfo?.name || 'Unknown Location',
-        // Include original trip planning data for display
-        locationInfo: cleanObject(tripData.locationInfo), // This has the place photos
-        traveler: cleanObject(tripData.traveler), // Now includes alter ego data
-        travelerType: tripData.traveler?.title || 'Unknown', // Easy access to traveler type
-        travelerPersonality: tripData.traveler?.personality || '', // Store the personality description
+        locationInfo: cleanObject(tripData.locationInfo), 
+        traveler: cleanObject(tripData.traveler), 
+        travelerType: tripData.traveler?.title || 'Unknown', 
+        travelerPersonality: tripData.traveler?.personality || '', 
         budget: tripData.budget || 'Budget not specified',
         totalNoOfDays: tripData.totalNoOfDays || 1,
-        startDate: cleanStartDate, // Use cleaned date
-        // AI generated trip data
+        startDate: cleanStartDate, 
         aiTripData: cleanObject(tripResp),
         createdAt: timestamp,
         lastModified: timestamp
@@ -175,7 +168,6 @@ export default function GenerateTrip() {
     }
   };
 
-  // Dynamic text based on selected traveler type
   const getTravelerMessage = () => {
     const travelerType = tripData?.traveler?.title;
     switch(travelerType) {
@@ -203,13 +195,12 @@ export default function GenerateTrip() {
         alignItems: "center",
       }}
     >
-      {/* Top Title Section */}
       <Text
         style={{
           fontFamily: "outfit-bold",
           fontSize: 32,
           textAlign: "center",
-          color: "#006A4E", // cedar green, premium travel vibe
+          color: "#006A4E", 
           marginBottom: 10,
         }}
       >
@@ -229,10 +220,8 @@ export default function GenerateTrip() {
         {getTravelerMessage()}
       </Text>
 
-      {/* Loading Spinner */}
       <ActivityIndicator size="large" color="#C49A6C" style={{ marginBottom: 30 }} />
 
-      {/* Image Section */}
       <View
         style={{
           width: "90%",
@@ -257,7 +246,6 @@ export default function GenerateTrip() {
         />
       </View>
 
-      {/* Footer Note */}
       <Text
         style={{
           fontFamily: "outfit-regular",
