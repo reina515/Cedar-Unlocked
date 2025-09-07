@@ -1,4 +1,3 @@
-
 const { initializeApp } = require('firebase/app');
 const { getFirestore, doc, setDoc, addDoc, collection, updateDoc } = require('firebase/firestore');
 
@@ -6,9 +5,9 @@ const { getFirestore, doc, setDoc, addDoc, collection, updateDoc } = require('fi
 const firebaseConfig = {
   apiKey: 
   authDomain: 
-  projectId: 
+  projectId:
   storageBucket: 
-  messagingSenderId: 
+  messagingSenderId:
   appId: 
   measurementId:
 };
@@ -107,7 +106,7 @@ const additionalStops = [
   { route_id: "ML4", name: "Jounieh", lat: 33.98, lng: 35.64, order: 4 },
   { route_id: "ML4", name: "Byblos", lat: 34.12, lng: 35.65, order: 5 },
   { route_id: "ML4", name: "Tripoli", lat: 34.4367, lng: 35.8497, order: 7 },
-  // === Bus 4 ===
+  //  Bus 4 
   { route_id: "Bus4",  name: "Lebanese University",     order: 1 },
   { route_id: "Bus4",  name: "Laylakeh",                 order: 2 },
   { route_id: "Bus4",  name: "Kafaat",                   order: 3 },
@@ -121,7 +120,7 @@ const additionalStops = [
   { route_id: "Bus4",  name: "Wardiye",                  order: 11 },
   { route_id: "Bus4",  name: "AUBMC",                    order: 12 },
 
-  // === Bus 12 ===
+  // Bus 12 
   { route_id: "Bus12", name: "Burj Barajneh",            order: 1 },
   { route_id: "Bus12", name: "Haret Hreik",              order: 2 },
   { route_id: "Bus12", name: "Mucharafieh",              order: 3 },
@@ -131,7 +130,7 @@ const additionalStops = [
   { route_id: "Bus12", name: "Mar Elias",                order: 7 },
   { route_id: "Bus12", name: "Hamra",                    order: 8 },
 
-  // === Bus 15 ===
+  //Bus 15 
   { route_id: "Bus15", name: "Dawra",                    order: 1 },
   { route_id: "Bus15", name: "BIEL",                     order: 2 },
   { route_id: "Bus15", name: "Zaitouna Bay",             order: 3 },
@@ -143,7 +142,7 @@ const additionalStops = [
   { route_id: "Bus15", name: "Corniche Mazraa",          order: 9 },
   { route_id: "Bus15", name: "Nahr El Mott",             order: 10 },
 
-  // === Bus 6 ===
+  // Bus 6 
   { route_id: "Bus6",  name: "Byblos",                   order: 1 },
   { route_id: "Bus6",  name: "Jounieh",                  order: 2 },
   { route_id: "Bus6",  name: "Kaslik",                   order: 3 },
@@ -152,7 +151,7 @@ const additionalStops = [
   { route_id: "Bus6",  name: "Antelias (Highway bridge)",order: 6 },
   { route_id: "Bus6",  name: "Cola",                     order: 7 },
 
-  // === Bus 5 ===
+  //Bus 5 
   { route_id: "Bus5",  name: "Hamra",                    order: 1 },
   { route_id: "Bus5",  name: "Rizk Hospital",            order: 2 },
   { route_id: "Bus5",  name: "Sassine",                  order: 3 },
@@ -169,13 +168,29 @@ async function updateDatabase() {
     console.log("Starting database update...");
     
  
-    console.log("\n Updating routes with new schedules...");
+    console.log("\n Creating/Updating routes with new schedules...");
     for (const route of updatedRoutes) {
-      await updateDoc(doc(db, "routes", route.id), {
-        schedule: route.schedule,
-        name: route.name 
-      });
-      console.log(`✓ Updated route ${route.name}`);
+      try {
+        // Try to update first
+        await updateDoc(doc(db, "routes", route.id), {
+          schedule: route.schedule,
+          name: route.name 
+        });
+        console.log(`✓ Updated route ${route.name}`);
+      } catch (error) {
+        if (error.code === 'not-found') {
+          // If route doesn't exist, create it
+          await setDoc(doc(db, "routes", route.id), {
+            id: route.id,
+            name: route.name,
+            price: route.price,
+            schedule: route.schedule
+          });
+          console.log(`✓ Created new route ${route.name}`);
+        } else {
+          throw error; // Re-throw if it's a different error
+        }
+      }
     }
     
 
