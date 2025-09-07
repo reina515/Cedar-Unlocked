@@ -18,16 +18,15 @@ import { fetchRoutes, fetchStopsForRoute } from "../../services/firestoreTranspo
 
 const { width } = Dimensions.get("window");
 
-// Single neutral theme
 const ROUTE_THEME = {
   colors: { 
-    primary: "#FFFFFF",   // Card background stays white
-    secondary: "#006A4E", // Dark green for accents (titles, borders, chips)
-    accent: "#dff0ecff"     // Very light green for highlights/badges
+    primary: "#FFFFFF",   
+    secondary: "#006A4E", 
+    accent: "#dff0ecff"  
   },
   label: "Standard",
   emoji: "🚌",
-  shadow: "#006A4E40",    // Subtle dark green shadow
+  shadow: "#006A4E40",  
 };
 
 export default function TransportUI() {
@@ -97,9 +96,7 @@ export default function TransportUI() {
         style={styles.touchable}
       >
         <View style={[styles.routeCardContainer, { backgroundColor: route.theme.colors.primary }]}>
-          {/* Decorative elements 
-          <View style={[styles.decorativeCircle, styles.circle1, { backgroundColor: route.theme.colors.secondary }]} />
-          <View style={[styles.decorativeCircle, styles.circle2, { backgroundColor: route.theme.colors.accent }]} />*/}
+         
           
           <View style={styles.routeHeader}>
             <View style={[styles.emojiContainer, { backgroundColor: route.theme.colors.accent }]}>
@@ -182,7 +179,7 @@ export default function TransportUI() {
     <View style={styles.container}>
       <StatusBar backgroundColor="#1F2937" barStyle="light-content" />
       
-      {/* Header */}
+
       <View style={styles.header}>
         <View style={styles.headerContent}>
           <Text style={styles.headerTitle}>Lebanon Transport</Text>
@@ -193,7 +190,7 @@ export default function TransportUI() {
         </TouchableOpacity>
       </View>
 
-      {/* Routes List */}
+ 
       <FlatList
         data={routesWithStops}
         renderItem={renderRouteCard}
@@ -211,8 +208,6 @@ export default function TransportUI() {
           </View>
         )}
       />
-
-      {/* Modal */}
       <Modal
         visible={showRouteDetails}
         animationType="slide"
