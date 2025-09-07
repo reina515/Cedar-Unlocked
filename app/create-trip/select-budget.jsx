@@ -55,7 +55,7 @@ export default function SelectBudget() {
             borderColor: isSelected ? "#006A4E" : "transparent",
           }}
         >
-          {/* Top badge */}
+    
           <View
             style={{
               backgroundColor:
@@ -75,8 +75,6 @@ export default function SelectBudget() {
               {item.title}
             </Text>
           </View>
-
-          {/* Title */}
           <Text
             style={{
               fontFamily: "outfit-bold",
@@ -88,7 +86,6 @@ export default function SelectBudget() {
             {item.title}
           </Text>
 
-          {/* Description pill */}
           <View
             style={{
               backgroundColor: "#F4F6F5",
@@ -115,7 +112,7 @@ export default function SelectBudget() {
 
   return (
     <View style={{ flex: 1, backgroundColor: "#F4F6F5", paddingTop: 41, paddingHorizontal: 20 }}>
-      {/* Simple Go Back like ReviewTrip */}
+
       <TouchableOpacity onPress={() => navigation.goBack()} style={{ flexDirection: "row", alignItems: "center", marginBottom: 20 }}>
         <Ionicons name="arrow-back" size={24} color="#006A4E" style={{ marginRight: 6 }} />
        
@@ -135,7 +132,7 @@ export default function SelectBudget() {
         contentContainerStyle={{ paddingBottom: 10 }}
       />
 
-      {/* Continue Button */}
+
       <TouchableOpacity
         onPress={() => {
           if (!selectedOption) {
