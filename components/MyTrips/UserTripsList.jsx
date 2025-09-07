@@ -12,7 +12,7 @@ export default function UserTripList({ userTrips, onTripUpdate }) {
   
   if (!userTrips || userTrips.length === 0) return null;
 
-  // Handle favorite toggle
+
   const toggleFavorite = async (trip) => {
     try {
       setUpdatingFavorite(trip.id);
@@ -20,12 +20,11 @@ export default function UserTripList({ userTrips, onTripUpdate }) {
       const tripRef = doc(db, 'UserTrips', trip.docId || trip.id);
       const newFavoriteStatus = !trip.isFavorited;
       
-      // Update Firestore
+   
       await updateDoc(tripRef, {
         isFavorited: newFavoriteStatus
       });
-      
-      // Call parent callback to refresh the trips list
+
       if (onTripUpdate) {
         onTripUpdate();
       }
@@ -38,15 +37,15 @@ export default function UserTripList({ userTrips, onTripUpdate }) {
     }
   };
 
-  // Beautiful gradient colors for different destinations - you can customize these!
+
   const gradientColors = [
-    ['#006A4E', '#008B5A'],  // Your brand green
-    ['#2E8B57', '#3CB371'],  // Sea green
+    ['#006A4E', '#008B5A'],  
+    ['#2E8B57', '#3CB371'],  
 
   ];
 
   const renderTripCard = ({ item: trip, index }) => {
-    // Debug log the trip structure
+
     console.log("Rendering trip:", {
       id: trip.id,
       destination: trip.destination,
@@ -56,7 +55,7 @@ export default function UserTripList({ userTrips, onTripUpdate }) {
       isFavorited: trip.isFavorited
     });
 
-    // Try to get destination from multiple possible locations with better fallbacks
+    
     const destination = trip?.destination || 
                        trip?.locationName || 
                        trip?.aiTripData?.tripDetails?.destination || 
@@ -76,7 +75,7 @@ export default function UserTripList({ userTrips, onTripUpdate }) {
                   trip?.budget || 
                   'Budget not specified';
 
-    // Format date if available
+
     const createdDate = trip?.createdAt 
       ? new Date(trip.createdAt).toLocaleDateString('en-US', {
           month: 'short',
@@ -85,7 +84,7 @@ export default function UserTripList({ userTrips, onTripUpdate }) {
         })
       : 'Recent';
 
-    // Get gradient colors for this card
+ 
     const cardGradient = gradientColors[index % gradientColors.length];
     
     const isFavorited = trip.isFavorited || false;
@@ -105,7 +104,7 @@ export default function UserTripList({ userTrips, onTripUpdate }) {
         }
         style={[styles.tripCard, { marginTop: index === 0 ? 20 : 15 }]}
       >
-        {/* Beautiful Gradient Header */}
+    
         <View style={[styles.cardHeader, { backgroundColor: cardGradient[0] }]}>
           <View style={styles.headerOverlay}>
             <View style={styles.destinationSection}>
@@ -117,7 +116,7 @@ export default function UserTripList({ userTrips, onTripUpdate }) {
             </View>
             
             <View style={styles.headerRightSection}>
-              {/* Favorite Heart Icon */}
+         
               <TouchableOpacity 
                 style={styles.favoriteButton}
                 onPress={() => toggleFavorite(trip)}
@@ -134,7 +133,7 @@ export default function UserTripList({ userTrips, onTripUpdate }) {
                 />
               </TouchableOpacity>
               
-              {/* Trip Type Icon */}
+           
               <View style={styles.tripTypeIcon}>
                 <Ionicons 
                   name={travelerType.toLowerCase().includes('family') ? 'people' : 
@@ -147,9 +146,8 @@ export default function UserTripList({ userTrips, onTripUpdate }) {
           </View>
         </View>
 
-        {/* Trip Details Content */}
         <View style={styles.cardContent}>
-          {/* Duration Section */}
+
           <View style={styles.infoSection}>
             <View style={styles.infoItem}>
               <View style={styles.iconContainer}>
@@ -162,7 +160,6 @@ export default function UserTripList({ userTrips, onTripUpdate }) {
             </View>
           </View>
 
-          {/* Traveler Type Section */}
           <View style={styles.infoSection}>
             <View style={styles.infoItem}>
               <View style={styles.iconContainer}>
@@ -175,7 +172,7 @@ export default function UserTripList({ userTrips, onTripUpdate }) {
             </View>
           </View>
 
-          {/* Budget Section */}
+    
           <View style={styles.infoSection}>
             <View style={styles.infoItem}>
               <View style={styles.iconContainer}>
@@ -188,7 +185,6 @@ export default function UserTripList({ userTrips, onTripUpdate }) {
             </View>
           </View>
 
-          {/* View Details Button */}
           <TouchableOpacity 
             style={styles.viewDetailsButton}
             onPress={() =>
@@ -223,7 +219,7 @@ export default function UserTripList({ userTrips, onTripUpdate }) {
         renderItem={renderTripCard}
         keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}
-        scrollEnabled={false} // Since it's inside ScrollView
+        scrollEnabled={false} 
       />
     </View>
   );
@@ -234,7 +230,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   
-  // Header Section
+
   headerSection: {
     marginBottom: 20,
   },
@@ -251,7 +247,7 @@ const styles = StyleSheet.create({
     borderRadius: 2,
   },
 
-  // Trip Card
+ 
   tripCard: {
     backgroundColor: Colors.WHITE,
     borderRadius: 20,
@@ -264,7 +260,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
 
-  // Card Header with Gradient
+  
   cardHeader: {
     height: 150,
     position: 'relative',
@@ -309,14 +305,13 @@ const styles = StyleSheet.create({
     marginLeft: 4,
   },
   
-  // New header right section with favorite and trip type
+ 
   headerRightSection: {
     flexDirection: 'row',
     alignItems: 'flex-end',
     gap: 12,
   },
-  
-  // Favorite button styles
+
   favoriteButton: {
     width: 44,
     height: 44,
@@ -342,12 +337,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
-  // Card Content
+  
   cardContent: {
     padding: 20,
   },
   
-  // Info Sections
   infoSection: {
     marginBottom: 16,
   },
@@ -380,7 +374,6 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
 
-  // View Details Button
   viewDetailsButton: {
     flexDirection: 'row',
     alignItems: 'center',
