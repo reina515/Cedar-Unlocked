@@ -59,10 +59,28 @@ Before you begin, ensure you have installed:
 2. Install dependencies
    ```bash
    npm install
+   
 3. Start the app
    ```bash
    npx expo start
-4. Configure environment variables
+4.Firebase (authentication & Firestore)
+   ```bash
+npm install firebase
+
+5.Calendar Picker (trip date selection)
+   ```bash
+npm install react-native-calendar-picker
+
+6.UI Components / Styling
+   ```bash
+npm install @expo/vector-icons
+
+7.Additional Tools for APIs
+   ```bash
+npm install axios
+
+
+8. Configure environment variables
 
 ## Create a .env file in the root directory and add your API keys:
 
