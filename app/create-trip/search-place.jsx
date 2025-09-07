@@ -40,7 +40,6 @@ export default function SearchPlace() {
 
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
-  // Search locations
   const searchPlaces = (text) => {
     setQuery(text);
     setResults([]);
@@ -66,10 +65,9 @@ export default function SearchPlace() {
       } catch (error) {
         console.error(error);
       }
-    }, 300); // shorter debounce for snappier feel
+    }, 300);
   };
 
-  // Select a place
   const handleSelect = async (item) => {
     setSelectedPlace(item);
 
@@ -81,8 +79,6 @@ export default function SearchPlace() {
 
       if (res.data.results.length > 0) {
         setPlaceImage(res.data.results[0].urls.regular);
-
-        // Animate fade-in
         fadeAnim.setValue(0);
         Animated.timing(fadeAnim, {
           toValue: 1,
@@ -98,7 +94,6 @@ export default function SearchPlace() {
     }
   };
 
-  // Confirm place
   const confirmPlace = () => {
     if (!selectedPlace) return;
 
@@ -118,14 +113,13 @@ export default function SearchPlace() {
 
   return (
     <View style={styles.container}>
-      {/* Search bar always on top */}
       <View style={styles.searchWrapper}>
    <TextInput
   placeholder="Search places in Lebanon..."
   placeholderTextColor="rgba(0,0,0,0.3)"
   value={query}
-  onChangeText={searchPlaces}       // keeps your search working
-  onFocus={() => {                  // THIS clears selected place and image
+  onChangeText={searchPlaces}       
+  onFocus={() => {                  
     setSelectedPlace(null);
     setPlaceImage(null);
   }}
@@ -134,7 +128,7 @@ export default function SearchPlace() {
 
       </View>
 
-      {/* Background Image */}
+
       {selectedPlace && placeImage && (
         <Animated.Image
           source={{ uri: placeImage }}
@@ -143,7 +137,6 @@ export default function SearchPlace() {
         />
       )}
 
-      {/* LocationIQ Options */}
       {!selectedPlace && (
         <FlatList
           data={results}
@@ -161,7 +154,6 @@ export default function SearchPlace() {
         />
       )}
 
-      {/* Confirm button */}
       {selectedPlace && (
         <View style={styles.confirmContainer}>
           <TouchableOpacity
@@ -204,7 +196,7 @@ const styles = StyleSheet.create({
   },
   backgroundImage: {
     position: "absolute",
-    top: 100, // leaves space for search bar
+    top: 100, 
     width: "100%",
     height: height - 100,
   },
