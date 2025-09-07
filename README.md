@@ -92,10 +92,41 @@ FIREBASE_PROJECT_ID=your_project_id
 FIREBASE_STORAGE_BUCKET=your_project.appspot.com
 FIREBASE_MESSAGING_SENDER_ID=your_sender_id
 FIREBASE_APP_ID=your_app_id
-
 # API Keys
 LOCATIONIQ_API_KEY=your_locationiq_key
 UNSPLASH_API_KEY=your_unsplash_key
 GEMINI_API_KEY=your_gemini_key
+
+
+9.## 🔑 Firebase Service Account Key Setup
+
+Some features of the app (like server-side Firestore access or admin tasks) require a **Firebase Service Account Key**.  
+
+### Steps to Get Your Service Account Key
+
+1. **Go to Firebase Console**  
+   Open [https://console.firebase.google.com/](https://console.firebase.google.com/) and select your project.
+
+2. **Navigate to Project Settings**  
+   Click the **gear icon** next to *Project Overview* → **Project Settings**.
+
+3. **Go to Service Accounts**  
+   On the left menu, select **Service Accounts**.
+
+4. **Generate a New Private Key**  
+   - Click **“Generate New Private Key”**.  
+   - Confirm, and Firebase will download a JSON file.
+
+5. **Secure the JSON File**  
+   The JSON file contains sensitive credentials like:
+   ```json
+   {
+     "type": "service_account",
+     "project_id": "your-project-id",
+     "private_key_id": "xxxx",
+     "private_key": "-----BEGIN PRIVATE KEY-----\\n...\\n-----END PRIVATE KEY-----\\n",
+     "client_email": "firebase-adminsdk-xxxxx@your-project-id.iam.gserviceaccount.com"
+   }
+
 
 
