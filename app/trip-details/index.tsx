@@ -101,7 +101,6 @@ export default function TripDetails() {
     }
   };
 
-  // ===== RENDERERS =====
 
   const renderDayItinerary = (dayKey: string, activities: any[]) => {
     const dayNumber = dayKey.replace('day', '');
@@ -131,7 +130,7 @@ export default function TripDetails() {
           <View style={styles.dayContent}>
             {activities.map((activity, index) => (
               <View key={index} style={styles.activityCard}>
-                {/* Top meta row: time + duration + cost */}
+  
                 <View style={styles.metaRow}>
                   <View style={styles.timeSection}>
                     <View style={styles.timeIconContainer}>
@@ -160,8 +159,6 @@ export default function TripDetails() {
                     </View>
                   )}
                 </View>
-
-                {/* Title & description */}
                 {!!activity.activity && (
                   <Text style={styles.activityTitle}>{activity.activity}</Text>
                 )}
@@ -171,7 +168,6 @@ export default function TripDetails() {
                   </Text>
                 )}
 
-                {/* Location */}
                 {!!activity.location && (
                   <View style={styles.locationSection}>
                     <Ionicons name="location-outline" size={16} color="#666" />
@@ -309,7 +305,6 @@ export default function TripDetails() {
   );
 
   const renderBudgetBreakdown = (budget: Record<string, string | number>) => {
-    // Separate total from other budget items
     const budgetEntries = Object.entries(budget);
     const totalEntry = budgetEntries.find(([label]) => 
       label.toLowerCase().includes('total')
@@ -318,7 +313,6 @@ export default function TripDetails() {
       !label.toLowerCase().includes('total')
     );
     
-    // Combine with total at the end
     const orderedEntries = totalEntry ? [...otherEntries, totalEntry] : budgetEntries;
 
     return (
@@ -358,15 +352,12 @@ export default function TripDetails() {
       contentContainerStyle={{ paddingBottom: 28 }}
       showsVerticalScrollIndicator={false}
     >
-      {/* Floating header back button */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
           <Ionicons name="arrow-back" size={21} color="#000" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Trip Details</Text>
       </View>
-
-      {/* Gradient hero */}
       <LinearGradient
         colors={['#006A4E', '#008B5A', '#00A86B']}
         start={{ x: 0, y: 0 }}
@@ -390,7 +381,6 @@ export default function TripDetails() {
         </View>
       </LinearGradient>
 
-      {/* Trip overview */}
       <View style={styles.section}>
         <View style={styles.tripInfoCard}>
           <View style={styles.infoRow}>
@@ -430,8 +420,6 @@ export default function TripDetails() {
           </View>
         </View>
       </View>
-
-      {/* Daily Itinerary */}
       {!!aiTripData?.dailyItinerary && (
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Daily Itinerary</Text>
@@ -442,7 +430,7 @@ export default function TripDetails() {
         </View>
       )}
 
-      {/* Hotels */}
+
       {!!aiTripData?.hotels?.length && (
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Recommended Hotels</Text>
@@ -450,7 +438,7 @@ export default function TripDetails() {
         </View>
       )}
 
-      {/* Flights */}
+
       {!!aiTripData?.flights?.length && (
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Flight Options</Text>
@@ -458,7 +446,7 @@ export default function TripDetails() {
         </View>
       )}
 
-      {/* Places Nearby */}
+
       {!!aiTripData?.placesNearby?.length && (
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Places to Visit</Text>
@@ -466,7 +454,6 @@ export default function TripDetails() {
         </View>
       )}
 
-      {/* Budget Breakdown */}
       {!!aiTripData?.totalBudgetBreakdown && (
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Budget Breakdown</Text>
@@ -474,7 +461,6 @@ export default function TripDetails() {
         </View>
       )}
 
-      {/* Local Tips */}
       {!!aiTripData?.localTips?.length && (
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Local Tips</Text>
@@ -489,7 +475,6 @@ export default function TripDetails() {
         </View>
       )}
 
-      {/* Trip Summary */}
       {!!aiTripData?.tripSummary && (
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Trip Summary</Text>
@@ -502,14 +487,13 @@ export default function TripDetails() {
   );
 }
 
-// ===== STYLES =====
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f8f9fa',
   },
 
-  // Loading & Error
   loadingContainer: {
     flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#f8f9fa',
   },
@@ -519,7 +503,7 @@ const styles = StyleSheet.create({
   },
   errorText: { fontSize: 20, color: '#FF3B30', textAlign: 'center', paddingHorizontal: 20 },
 
-  // Header
+
   header: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -538,7 +522,7 @@ const styles = StyleSheet.create({
     textShadowColor: 'rgba(0,0,0,0.3)', textShadowOffset: { width: 0, height: 1 }, textShadowRadius: 3,
   },
 
-  // Gradient hero
+
   gradientHeader: {
     height: 280,
     position: 'relative',
@@ -567,7 +551,7 @@ const styles = StyleSheet.create({
   },
   quickInfoText: { color: '#fff', fontSize: 16, fontWeight: '500', marginLeft: 6 },
 
-  // Section wrapper
+
   section: {
     marginTop: 10,
     paddingHorizontal: 30,
@@ -576,7 +560,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: { fontSize: 20, fontWeight: '600', color: '#014331ff', marginBottom: 25},
 
-  // Trip Info
+ 
   tripInfoCard: {
     backgroundColor: '#fff', borderRadius: 20, padding: 24,
     shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.15, shadowRadius: 8,
@@ -587,7 +571,6 @@ const styles = StyleSheet.create({
   infoLabel: { fontSize: 16, color: '#666', marginBottom: 4 },
   infoValue: { fontSize: 18, fontWeight: '500', color: '#000', lineHeight: 24 },
 
-  // Day card
   dayCard: {
     backgroundColor: '#fff',
     borderRadius: 16,
@@ -613,7 +596,7 @@ const styles = StyleSheet.create({
   dayTitle: { fontSize: 20, fontWeight: '700', color: '#006A4E' },
   dayContent: { padding: 16, paddingTop: 12 },
 
-  // Activity card
+
   activityCard: {
     backgroundColor: '#f8f9fa',
     borderRadius: 12,
@@ -623,7 +606,7 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(0,106,78,0.08)',
   },
 
-  // Top meta row
+
   metaRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -653,7 +636,7 @@ const styles = StyleSheet.create({
   },
   activityCost: { fontSize: 15, fontWeight: '600', color: '#28a745', marginLeft: 4 },
 
-  // Body
+
   activityTitle: {
     fontSize: 18, fontWeight: '600', color: '#000', marginBottom: 6, lineHeight: 24,
   },
@@ -661,7 +644,7 @@ const styles = StyleSheet.create({
     fontSize: 15, color: '#666', lineHeight: 20, marginBottom: 10, flexWrap: 'wrap',
   },
 
-  // Location row
+
   locationSection: {
     flexDirection: 'row', alignItems: 'center',
     paddingVertical: 6, paddingHorizontal: 10,
@@ -672,7 +655,7 @@ const styles = StyleSheet.create({
     fontSize: 14, color: '#555', fontWeight: '500', flex: 1, marginLeft: 6, flexShrink: 1,
   },
 
-  // Hotels
+
   hotelCard: {
     backgroundColor: '#fff', borderRadius: 12, marginBottom: 16,
     shadowColor: '#000', shadowOpacity: 0.1, shadowRadius: 4, elevation: 3, overflow: 'hidden',
@@ -696,7 +679,7 @@ const styles = StyleSheet.create({
   },
   amenityText: { fontSize: 14, color: '#495057' },
 
-  // Flights
+ 
   flightCard: {
     backgroundColor: '#fff', borderRadius: 12, padding: 16, marginBottom: 12,
     shadowColor: '#000', shadowOpacity: 0.1, shadowRadius: 4, elevation: 3,
@@ -722,7 +705,7 @@ const styles = StyleSheet.create({
     borderRadius: 8, alignSelf: 'flex-start',
   },
   bookButtonText: { color: '#fff', fontSize: 15, fontWeight: '500' },
-  // Places
+
   placeCard: {
     backgroundColor: '#fff', borderRadius: 12, marginBottom: 12,
     shadowColor: '#000', shadowOpacity: 0.1, shadowRadius: 4, elevation: 3,
@@ -736,7 +719,6 @@ const styles = StyleSheet.create({
   placeInfoRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 6 },
   placeInfoText: { marginLeft: 6, fontSize: 14, color: '#666', flexShrink: 1 },
 
-  // Budget
   budgetCard: {
     backgroundColor: '#fff', borderRadius: 12, padding: 16,
     shadowColor: '#000', shadowOpacity: 0.1, shadowRadius: 4, elevation: 3,
@@ -748,7 +730,6 @@ const styles = StyleSheet.create({
   budgetLabel: { fontSize: 16, color: '#666' },
   budgetAmount: { fontSize: 16, fontWeight: '500', color: '#333' },
 
-  // Tips
   tipsCard: {
     backgroundColor: '#fff', borderRadius: 12, padding: 16,
     shadowColor: '#000', shadowOpacity: 0.1, shadowRadius: 4, elevation: 3,
@@ -756,7 +737,6 @@ const styles = StyleSheet.create({
   tipItem: { flexDirection: 'row', alignItems: 'flex-start', marginBottom: 12 },
   tipText: { marginLeft: 10, fontSize: 15, color: '#333', lineHeight: 22, flex: 1, flexShrink: 1 },
 
-  // Summary
   summaryCard: {
     backgroundColor: '#fff', borderRadius: 12, padding: 20,
     shadowColor: '#000', shadowOpacity: 0.1, shadowRadius: 4, elevation: 3, marginBottom: 20,
