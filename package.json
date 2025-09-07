@@ -1,5 +1,5 @@
 {
-  "name": "ai-travel-planner-app",
+  "name": "travel-app",
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
