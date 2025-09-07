@@ -26,6 +26,14 @@ It integrates **Firebase**, **LocationIQ**, **Unsplash**, and **Gemini API** to 
 - **React Native + Expo (Web)** – Build reusable UI & run on browsers/emulators  
 - **React Navigation** – Multi-screen navigation  
 - **Calendar Picker** – Date selection for trip planning  
+- **@expo/vector-icons** – Icon library providing access to Ionicons, Entypo, MaterialIcons, and other icon sets
+- **expo-router** – File-based routing and navigation for Expo/React Native apps
+- **firebase** – Firebase SDK for backend services (Firestore database, authentication)
+- **react** – JavaScript library for building user interfaces
+- **react-native** – Framework for building native mobile apps using React
+- **react-native-svg** – SVG support for React Native applications
+- **react-native-vector-icons** – Customizable icon library with multiple icon sets including Feather icons
+- **moment** – Date and time manipulation library
 
 ### Tools & Services
 - **Firebase SDK & Firestore** – Authentication, cloud storage, real-time updates  
@@ -76,7 +84,17 @@ Before you begin, ensure you have installed:
 
    **UI Components / Styling**:
    ```bash
-   npm install @expo/vector-icons
+   npm install @expo/vector-icons react-native-vector-icons
+   ```
+
+   **SVG Support**:
+   ```bash
+   npm install react-native-svg
+   ```
+
+   **Date/Time Manipulation**:
+   ```bash
+   npm install moment
    ```
 
    **Additional Tools for APIs**:
