@@ -110,28 +110,27 @@ export default function FlightInfo({ flightData }) {
         <Text style={styles.sectionTitle}>Flight Information</Text>
       </View>
       
-      {/* Outbound Flight */}
+
       {flightData.outbound && renderFlightCard(
         flightData.outbound, 
         'Outbound Flight', 
         'airplane-outline'
       )}
       
-      {/* Return Flight */}
+    
       {flightData.return && renderFlightCard(
         flightData.return, 
         'Return Flight', 
         'return-down-back-outline'
       )}
       
-      {/* Single Flight (for one-way trips) */}
+   
       {!flightData.outbound && !flightData.return && renderFlightCard(
         flightData, 
         'Flight Details', 
         'airplane-outline'
       )}
-      
-      {/* Flight Summary */}
+
       {(flightData.totalPrice || flightData.summary) && (
         <View style={styles.summaryCard}>
           {flightData.totalPrice && (
@@ -242,7 +241,7 @@ const styles = StyleSheet.create({
   },
     airplane: {
     marginHorizontal: 8,
-    transform: [{ rotate: '90deg' }], // rotate airplane icon for visual effect
+    transform: [{ rotate: '90deg' }], 
   },
   flightDetails: {
     marginBottom: 16,
