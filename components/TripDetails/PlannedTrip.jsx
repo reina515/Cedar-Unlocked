@@ -59,7 +59,7 @@ export default function PlannedTrip() {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
 
-      {/* Trip Summary */}
+    
       {aiTripData.tripSummary && (
         <View style={styles.summaryContainer}>
           <Text style={styles.summaryTitle}>Trip Summary</Text>
@@ -67,7 +67,6 @@ export default function PlannedTrip() {
         </View>
       )}
 
-      {/* Day Tabs */}
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.daySelector}>
         {itinerary.map((day, index) => (
           <TouchableOpacity
@@ -82,7 +81,7 @@ export default function PlannedTrip() {
         ))}
       </ScrollView>
 
-      {/* Day Details */}
+
       {itinerary[selectedDay] && (
         <View style={styles.dayDetailsContainer}>
           <Text style={styles.dayTitle}>Day {itinerary[selectedDay].day || selectedDay + 1}</Text>
@@ -91,7 +90,7 @@ export default function PlannedTrip() {
             <Text style={styles.dayTheme}>{itinerary[selectedDay].theme}</Text>
           )}
 
-          {/* Activities */}
+  
           {itinerary[selectedDay].activities?.map((activity, idx) => (
             <View key={idx} style={styles.activityCard}>
               <Text style={styles.activityName}>{activity.activity || activity.name}</Text>
@@ -105,7 +104,7 @@ export default function PlannedTrip() {
             <Text style={styles.noActivitiesText}>No activities planned for this day</Text>
           )}
 
-          {/* Day Summary */}
+   
           {itinerary[selectedDay].summary && (
             <Text style={styles.daySummaryText}>{itinerary[selectedDay].summary}</Text>
           )}
